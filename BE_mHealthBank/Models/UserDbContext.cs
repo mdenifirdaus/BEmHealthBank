@@ -50,9 +50,9 @@ namespace BE_mHealthBank.Models
 
             modelBuilder.Entity<TblUserCredential>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Tbl_UserCredential");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.UserEmail)
                     .HasMaxLength(50)

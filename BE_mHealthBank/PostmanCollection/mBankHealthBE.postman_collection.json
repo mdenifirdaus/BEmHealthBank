@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "532fac1a-8d77-4fd9-8e7b-4a0e1c59a038",
+		"name": "mBankHealthBE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetUserInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNREZBcGlBdXRoU3ViamVjdCIsImp0aSI6ImZkNDM4Yjg0LTQ4OTgtNDc3OS05ODI3LWQyMTg0YmI5MTZlYyIsImlhdCI6IjAzLzA1LzIwMjMgMDI6NDE6MTgiLCJVc2VyTmFtZSI6Ik0gRGVuaSBGaXJkYXVzIiwiUGFzc3dvcmQiOiJNREYxMjMiLCJuYmYiOjE2ODMwNDY4MDAsImV4cCI6MTY4MzI1NDQ3OCwiaXNzIjoiTURGQXBpQXV0aElzc3VlciIsImF1ZCI6Ik1ERkFwaUF1dGhBdWRpZW5jZSJ9.vb0mR9i-Ha3bci2dcoXVg9ebpoF8CWDED06LiY_q1OM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44315/api/user/master/users-list",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44315",
+					"path": [
+						"api",
+						"user",
+						"master",
+						"users-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertUserInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNREZBcGlBdXRoU3ViamVjdCIsImp0aSI6ImZkNDM4Yjg0LTQ4OTgtNDc3OS05ODI3LWQyMTg0YmI5MTZlYyIsImlhdCI6IjAzLzA1LzIwMjMgMDI6NDE6MTgiLCJVc2VyTmFtZSI6Ik0gRGVuaSBGaXJkYXVzIiwiUGFzc3dvcmQiOiJNREYxMjMiLCJuYmYiOjE2ODMwNDY4MDAsImV4cCI6MTY4MzI1NDQ3OCwiaXNzIjoiTURGQXBpQXV0aElzc3VlciIsImF1ZCI6Ik1ERkFwaUF1dGhBdWRpZW5jZSJ9.vb0mR9i-Ha3bci2dcoXVg9ebpoF8CWDED06LiY_q1OM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ImageProfile",
+							"type": "file",
+							"src": "/C:/Users/muhamad.firdaus/Pictures/Saved Pictures/skenario1.jpg"
+						},
+						{
+							"key": "FullName",
+							"value": "Ilyas",
+							"type": "default"
+						},
+						{
+							"key": "AddressName",
+							"value": "Jakarta",
+							"type": "default"
+						},
+						{
+							"key": "BirthDate",
+							"value": "1990-05-03T02:43:53.614Z",
+							"type": "default"
+						},
+						{
+							"key": "Gender",
+							"value": "Laki-laki",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44315/api/user/master/insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44315",
+					"path": [
+						"api",
+						"user",
+						"master",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertUserCredential",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNREZBcGlBdXRoU3ViamVjdCIsImp0aSI6ImZkNDM4Yjg0LTQ4OTgtNDc3OS05ODI3LWQyMTg0YmI5MTZlYyIsImlhdCI6IjAzLzA1LzIwMjMgMDI6NDE6MTgiLCJVc2VyTmFtZSI6Ik0gRGVuaSBGaXJkYXVzIiwiUGFzc3dvcmQiOiJNREYxMjMiLCJuYmYiOjE2ODMwNDY4MDAsImV4cCI6MTY4MzI1NDQ3OCwiaXNzIjoiTURGQXBpQXV0aElzc3VlciIsImF1ZCI6Ik1ERkFwaUF1dGhBdWRpZW5jZSJ9.vb0mR9i-Ha3bci2dcoXVg9ebpoF8CWDED06LiY_q1OM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"UserName\": \"John\",\r\n  \"UserPassword\": \"John123\",\r\n  \"UserEmail\": \"john@yahoo.co.id\",\r\n  \"UserPhone\": \"08964752734\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44315/api/user/credential/insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44315",
+					"path": [
+						"api",
+						"user",
+						"credential",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

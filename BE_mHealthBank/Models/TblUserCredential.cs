@@ -11,5 +11,6 @@ namespace BE_mHealthBank.Models
         public string UserPassword { get; set; }
         public string UserEmail { get; set; }
         public string UserPhone { get; set; }
+        public int Id { get; set; }
     }
 }
