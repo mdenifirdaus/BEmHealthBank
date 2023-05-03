@@ -42,9 +42,7 @@ namespace BE_mHealthBank.Controllers
                         new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString()),
                         new Claim("UserName", userData.UserName),
-                        new Claim("Password", userData.UserPassword),
-                        new Claim("Email", userData.UserEmail),
-                        new Claim("Phone", userData.UserPhone),
+                        new Claim("Password", userData.UserPassword)
                     };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Key")));

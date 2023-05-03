@@ -1,4 +1,5 @@
 ﻿using BE_mHealthBank.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ namespace BE_mHealthBank.Controllers
 {
     [Route("api/user/")]
     [ApiController]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UserProfileController : ControllerBase
     {
         public readonly UserDbContext _dbcontext;
@@ -39,7 +40,7 @@ namespace BE_mHealthBank.Controllers
         public async Task<IActionResult> UpdateUser([FromBody] TblUser incomingItem)
         {
             var existingData = _dbcontext.TblUser.AsNoTracking()
-                            .FirstOrDefaultAsync(m => m.FullName == incomingItem.FullName).Result;
+                            .FirstOrDefaultAsync(m => m.Id == incomingItem.Id).Result;
 
             if (existingData is not null)
             {
@@ -52,6 +53,18 @@ namespace BE_mHealthBank.Controllers
             _dbcontext.SaveChanges();
             
             return Ok(incomingItem);
+        }
+
+        [HttpPut("delete")]
+        public async Task<IActionResult> DeleteUser([FromBody] int userId)
+        {
+            var existingData = _dbcontext.TblUser.AsNoTracking()
+                            .FirstOrDefaultAsync(m => m.Id == userId).Result;
+
+            _ = _dbcontext.Remove(existingData);
+            _dbcontext.SaveChanges();
+
+            return Ok(existingData);
         }
 
     }
